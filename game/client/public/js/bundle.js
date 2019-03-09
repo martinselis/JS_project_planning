@@ -113,9 +113,9 @@ eval("const PubSub = {\n  publish: function (channel, payload) {\n    const even
   !*** ./client/src/model/data_load.js ***!
   \***************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (12:4)\\nYou may need an appropriate loader to handle this file type.\\n|     {id: 5, value: 5, url:\\\"images/5.jpg\\\"},\\n|     {id: 6, value: 6, url:\\\"images/6.jpeg\\\"}\\n>     {id: 7, value: 7, url:\\\"images/7.png\\\"},\\n|     {id: 8, value: 8, url:\\\"images/8.jpeg\\\"}\\n|   ]\");\n\n//# sourceURL=webpack:///./client/src/model/data_load.js?");
+eval("const PubSub = __webpack_require__(/*! ../helpers/pub_sub.js */ \"./client/src/helpers/pub_sub.js\")\n\nconst DataLoad = function() {\n\n  this.images = [\n    {id: 1, value: 1, url:\"images/1.jpeg\"},\n    {id: 2, value: 2, url:\"images/2.jpeg\"},\n    {id: 3, value: 3, url:\"images/3.jpg\"},\n    {id: 4, value: 4, url:\"images/4.png\"},\n    {id: 5, value: 5, url:\"images/5.jpg\"},\n    {id: 6, value: 6, url:\"images/6.jpeg\"},\n    {id: 7, value: 7, url:\"images/7.png\"},\n    {id: 8, value: 8, url:\"images/8.jpeg\"}\n  ]\n}\n\nDataLoad.prototype.publishData = function () {\n  this.sortData();\n  PubSub.publish('DataLoad:images-ready', this.images)\n};\n\nDataLoad.prototype.sortData = function () {\n  const allImages = this.images;\n  const newArray = this.images.reduce((total, image) => {\n    image.id = this.images.length + image.id + 1;\n    total.push(image)\n    return total;\n  }, [])\n  allImages.push(newArray);\n  this.images = allImages.flat();\n};\n\nmodule.exports = DataLoad;\n\n\n//# sourceURL=webpack:///./client/src/model/data_load.js?");
 
 /***/ }),
 
@@ -126,7 +126,18 @@ eval("throw new Error(\"Module parse failed: Unexpected token (12:4)\\nYou may n
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const PubSub = __webpack_require__(/*! ../helpers/pub_sub.js */ \"./client/src/helpers/pub_sub.js\");\n\n\nconst MasterView = function(element) {\n  this.element = element;\n}\n\nMasterView.prototype.bindEvents = function () {\n  PubSub.subscribe('DataLoad:images-ready', (event) => {\n    console.log(event.detail)\n  })\n};\n\nmodule.exports = MasterView;\n\n\n//# sourceURL=webpack:///./client/src/views/master_view.js?");
+eval("const PubSub = __webpack_require__(/*! ../helpers/pub_sub.js */ \"./client/src/helpers/pub_sub.js\");\nconst SquareView = __webpack_require__(/*! ../views/square_view.js */ \"./client/src/views/square_view.js\")\n\nconst MasterView = function(element) {\n  this.element = element;\n}\n\nMasterView.prototype.bindEvents = function () {\n  PubSub.subscribe('DataLoad:images-ready', (event) => {\n    const imageData = event.detail;\n    this.renderImages(imageData)\n  })\n};\n\nMasterView.prototype.renderImages = function (imageData) {\n  imageData.forEach((image) => {\n    const squareView = new SquareView(this.element, image);\n    squareView.render();\n  })\n};\n\nmodule.exports = MasterView;\n\n\n//# sourceURL=webpack:///./client/src/views/master_view.js?");
+
+/***/ }),
+
+/***/ "./client/src/views/square_view.js":
+/*!*****************************************!*\
+  !*** ./client/src/views/square_view.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const PubSub = __webpack_require__(/*! ../helpers/pub_sub.js */ \"./client/src/helpers/pub_sub.js\");\n\nconst SquareView = function(container, data) {\n  this.container = container;\n  this.url = data.url;\n  this.id = data.id;\n  this.value = data.value;\n}\n\nSquareView.prototype.render = function () {\n  const squareDiv = this.createDiv();\n  const newImg = this.createImage();\n  squareDiv.appendChild(newImg);\n  this.addClickEvent(squareDiv)\n  this.container.appendChild(squareDiv);\n};\n\nSquareView.prototype.createDiv = function () {\n  const newDiv = document.createElement(\"div\");\n  newDiv.classList.add(\"square\")\n  return newDiv\n};\n\nSquareView.prototype.createImage = function () {\n  const img = document.createElement(\"img\");\n  img.src = this.url;\n  return img\n};\n\nSquareView.prototype.addClickEvent = function (squareDiv) {\n  squareDiv.addEventListener('click', (event) => {\n    console.log(this.value, this.id);\n  })\n};\n\nmodule.exports = SquareView;\n\n\n//# sourceURL=webpack:///./client/src/views/square_view.js?");
 
 /***/ })
 
