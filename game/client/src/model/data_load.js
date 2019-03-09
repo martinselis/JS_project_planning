@@ -12,3 +12,5 @@ const DataLoad = function() {
 DataLoad.prototype.duplicate = function () {
 
 };
+
+module.export = DataLoad
