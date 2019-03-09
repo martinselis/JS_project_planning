@@ -1,8 +1,14 @@
 const express = require('express');
 const app = express();
 
+const path = require('path');
+const bodyParser = require('body-parser')
+
+const publicPath = path.join(__dirname, '../client/public');
+app.use(express.static(publicPath));
+
 app.get('/', (req, res) => {
-  console.log('request received')
+  res.sendFile('index.html')
 })
 
 app.listen(3000, ()=> {
