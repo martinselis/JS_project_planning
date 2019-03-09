@@ -3,6 +3,6 @@ const MasterView = require('./views/master_view')
 const DataLoad = require('./model/data_load')
 const GameLogic = require('./model/game_logic')
 
-document.addEventListeners('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   console.log('DOMContentLoaded')
 })

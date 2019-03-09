@@ -93,7 +93,18 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const SquareView = __webpack_require__(/*! ./views/square_view */ \"./client/src/views/square_view.js\")\nconst MasterView = __webpack_require__(/*! ./views/master_view */ \"./client/src/views/master_view.js\")\nconst DataLoad = __webpack_require__(/*! ./model/data_load */ \"./client/src/model/data_load.js\")\nconst GameLogic = __webpack_require__(/*! ./model/game_logic */ \"./client/src/model/game_logic.js\")\n\ndocument.addEventListeners('DOMContentLoaded', () => {\n  console.log('DOMContentLoaded')\n})\n\n\n//# sourceURL=webpack:///./client/src/app.js?");
+eval("const SquareView = __webpack_require__(/*! ./views/square_view */ \"./client/src/views/square_view.js\")\nconst MasterView = __webpack_require__(/*! ./views/master_view */ \"./client/src/views/master_view.js\")\nconst DataLoad = __webpack_require__(/*! ./model/data_load */ \"./client/src/model/data_load.js\")\nconst GameLogic = __webpack_require__(/*! ./model/game_logic */ \"./client/src/model/game_logic.js\")\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  console.log('DOMContentLoaded')\n})\n\n\n//# sourceURL=webpack:///./client/src/app.js?");
+
+/***/ }),
+
+/***/ "./client/src/helpers/pub_sub.js":
+/*!***************************************!*\
+  !*** ./client/src/helpers/pub_sub.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("const PubSub = {\n  publish: function (channel, payload) {\n    const event = new CustomEvent(channel, {\n      detail: payload\n    });\n    document.dispatchEvent(event);\n  },\n\n  subscribe: function (channel, callback) {\n    document.addEventListener(channel, callback);\n  }\n};\n\nmodule.exports = PubSub;\n\n\n//# sourceURL=webpack:///./client/src/helpers/pub_sub.js?");
 
 /***/ }),
 
@@ -124,9 +135,9 @@ eval("\n\n//# sourceURL=webpack:///./client/src/model/game_logic.js?");
   !*** ./client/src/views/master_view.js ***!
   \*****************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (1:23)\\nYou may need an appropriate loader to handle this file type.\\n> const PubSub = require(../helpers/pub_sub);\\n| \\n| const MasterView = function (container) {\");\n\n//# sourceURL=webpack:///./client/src/views/master_view.js?");
+eval("const PubSub = __webpack_require__(/*! ../helpers/pub_sub */ \"./client/src/helpers/pub_sub.js\");\n\nconst MasterView = function (container) {\n  this.container = container;\n}\n\n// Subscribe to all cards ready\nMasterView.prototype.setupEventListeners = function() {\n  PubSub.subscribe('DataLoad:cards-ready', (evt) => {\n    const items = evt.detail;\n    this.renderCards(items);\n  });\n};\n\n// Sends render to square view to allow all cards ready\nMasterView.prototype.renderCards = function(items){\n  items.forEach((item) => this.renderCards(item));\n}\n\n// Subscribe to reset if not match method.\n//\n// Subscribe to match tally and publish the Game Won message\n\nmodule.exports = MasterView\n\n\n//# sourceURL=webpack:///./client/src/views/master_view.js?");
 
 /***/ }),
 
@@ -135,9 +146,9 @@ eval("throw new Error(\"Module parse failed: Unexpected token (1:23)\\nYou may n
   !*** ./client/src/views/square_view.js ***!
   \*****************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (11:40)\\nYou may need an appropriate loader to handle this file type.\\n| \\n| //on event listen for flip cards\\n> const cards = document.querySelectorAll(.memory-card);\\n| \\n| function flipCard() {\");\n\n//# sourceURL=webpack:///./client/src/views/square_view.js?");
+eval("const PubSub = __webpack_require__(/*! ../helpers/pub_sub */ \"./client/src/helpers/pub_sub.js\");\nconst MasterView = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module './views/master_view'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))\n\nconst SquareView = function (container) {\n  this.container = container\n}\n\n//render all cards to grid\n\n//on event listen for flip cards\nconst cards = document.querySelectorAll('.memory-card')\n\nfunction flipCard() {\n  this.classList.toggle('flip');\n}\n\ncards.forEach(card => card.addEventListener('click', flipCard));\n\n\n//publish choosen cards back to the game logic file\n\nmodule.exports = SquareView\n\n\n//# sourceURL=webpack:///./client/src/views/square_view.js?");
 
 /***/ }),
 

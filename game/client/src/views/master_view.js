@@ -1,4 +1,4 @@
-const PubSub = require(../helpers/pub_sub);
+const PubSub = require('../helpers/pub_sub');
 
 const MasterView = function (container) {
   this.container = container;
