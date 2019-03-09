@@ -1,6 +1,11 @@
 #master_grid {
   display:grid;
   grid-template-columns: repeat(4, 1fr);
-  width: 500px;
-  margin: 200px auto;
+  width: 400px;
+  margin: 100px auto;
+}
+
+img {
+  width: 100px;
+  height: auto;
 }
