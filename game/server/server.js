@@ -11,18 +11,18 @@ app.use(bodyParser.json());
 
 MongoClient.connect('mongodb://localhost:27017')
   .then((client) => {
-    const db = client.db('scoreboard')
+    const db = client.db('scoreboard');
     const entries = db.collection('entry')
-    app.use('api/scoreboard', createRouter(entries))
+    app.use('/api/scoreboard', createRouter(entries))
   })
   .catch((err) => {
     console.error('Failed to connect to DB');
     console.error(err);
   });
 
-app.get('/', (req, res) => {
-  res.sendFile('index.html')
-})
+// app.get('/', (req, res) => {
+//   res.sendFile('index.html')
+// })
 
 
 app.listen(3000, ()=> {

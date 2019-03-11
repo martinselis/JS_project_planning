@@ -9,11 +9,6 @@ const createRouter = function(collection) {
     .find()
     .toArray()
     .then((docs) =>res.json(docs))
-    .catch((err) =>{
-      console.error(err)
-    res.status(500);
-    res.json({status:500, error: console.error()});
-    });
   });
 
   router.post('/', (req, res) =>{
@@ -33,6 +28,6 @@ const createRouter = function(collection) {
     })
   })
   return router
-}
+};
 
 module.exports = createRouter
