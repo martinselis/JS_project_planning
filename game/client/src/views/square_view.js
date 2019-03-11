@@ -41,7 +41,11 @@ SquareView.prototype.addClickEvent = function (squareDiv) {
     this.displayCard(card)
 
     const data = {value: this.value, id: this.id}
+
+    PubSub.publish('SquareView:increment-clicks', 1);
     PubSub.publish('SquareView:card-clicked', data)
+
+
   })
 };
 

@@ -25,6 +25,16 @@ Player.prototype.bindEvents = function () {
     completionTime = completionTime / 1000;
     console.log(`You completed the game in ${completionTime} seconds`)
   })
+
+  PubSub.subscribe('SquareView:increment-clicks', (event) => {
+    this.clickCount += 1;
+    console.log('click count:', this.clickCount)
+  })
+
+  PubSub.subscribe('GameLogic:game-complete', (event) => {
+    console.log('final click count:', this.clickCount)
+
+  })
 };
 
 module.exports = Player;
