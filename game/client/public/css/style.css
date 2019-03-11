@@ -19,6 +19,7 @@
   width: 100px;
   height: 100px;
   border: 1px solid black;
+  background-image: url('../images/Codeclan.jpg');
 }
 
 img {
@@ -27,7 +28,7 @@ img {
 }
 
 .hidden {
-  background-image: './images/Codeclan.jpg';
+  display:none;
 }
 
 .show {
