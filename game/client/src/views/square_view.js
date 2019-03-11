@@ -1,5 +1,5 @@
 const PubSub = require('../helpers/pub_sub');
-// const MasterView = require('./views/master_view')
+const MasterView = require('./master_view')
 
 const SquareView = function (container) {
   this.classList = classList;
