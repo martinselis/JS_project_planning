@@ -27,7 +27,7 @@ img {
 }
 
 .hidden {
-  display:none;
+  background-image: './images/Codeclan.jpg';
 }
 
 .show {
@@ -41,4 +41,8 @@ img {
 
 #playerInfo a {
   display:block;
+}
+
+.flip {
+  transform: rotateY(180deg);
 }
