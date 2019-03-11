@@ -25,7 +25,7 @@ const createRouter = function(collection) {
       .find()
       .toArray()
       .then((docs) => res.json(docs));
-    });
+    })
     .catch((err) => {
       console.error(err);
       res.status(500);
