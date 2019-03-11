@@ -20,6 +20,8 @@
   height: 100px;
   border: 1px solid black;
   background-image: url('../images/Codeclan.jpg');
+  background-position: center;
+  
 }
 
 img {
