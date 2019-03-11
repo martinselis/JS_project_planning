@@ -1,7 +1,10 @@
 const PubSub = require('../helpers/pub_sub.js')
 const images = require('./images.js')
 const shuffle_function = require('./shuffle_function.js')
+const RequestHelper = require('../helpers/request_helper.js')
+
 const DataLoad = function() {
+  this.request = new RequestHelper('/api/scoreboard')
 
 }
 
@@ -10,8 +13,16 @@ DataLoad.prototype.bindEvents = function () {
     const difficulty = event.detail
     const level = this.setDifficulty(difficulty)
     // publishLevel
-   PubSub.publish('DataLoad:images-ready', this.images)
+    this.getLeaderboard()
+    const allData = {images: this.images, leaderboard: this.leaderboard};
+   PubSub.publish('DataLoad:images-ready', allData)
   })
+
+};
+
+DataLoad.prototype.getLeaderboard = function () {
+  this.request.get()
+    .then((entries) => this.leaderboard = entries)
 
 };
 
