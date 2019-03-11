@@ -137,7 +137,7 @@ eval("const PubSub = __webpack_require__(/*! ../helpers/pub_sub.js */ \"./client
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("const images = [\n  {id: 1, value: 1, url:\"images/1.jpeg\"},\n  {id: 2, value: 2, url:\"images/2.jpeg\"},\n  {id: 3, value: 3, url:\"images/3.jpg\"},\n  {id: 4, value: 4, url:\"images/4.png\"},\n  {id: 5, value: 5, url:\"images/5.jpg\"},\n  {id: 6, value: 6, url:\"images/6.jpeg\"},\n  {id: 7, value: 7, url:\"images/7.png\"},\n  {id: 8, value: 8, url:\"images/8.jpeg\"},\n  {id: 9, value: 9, url:\"images/9.png\"},\n  {id: 10, value: 10, url:\"images/10.png\"},\n  {id: 11, value: 11, url:\"images/11.png\"},\n  {id: 12, value: 12, url:\"images/12.jpeg\"}\n]\n\nmodule.exports = images;\n\n\n//# sourceURL=webpack:///./client/src/model/images.js?");
+eval("const images = [\n  {id: 1, value: 1, url:\"images/instructor1.jpeg\"},\n  {id: 2, value: 2, url:\"images/instructor2.jpeg\"},\n  {id: 3, value: 3, url:\"images/instructor3.jpeg\"},\n  {id: 4, value: 4, url:\"images/instructor4.png\"},\n  {id: 5, value: 5, url:\"images/instructor5.jpeg\"},\n  {id: 6, value: 6, url:\"images/instructor6.jpeg\"},\n  {id: 7, value: 7, url:\"images/instructor7.jpeg\"},\n  {id: 8, value: 8, url:\"images/instructor8.png\"},\n  {id: 9, value: 9, url:\"images/instructor9.jpeg\"},\n  {id: 10, value: 10, url:\"images/instructor10.jpeg\"},\n  {id: 11, value: 11, url:\"images/instructor11.jpeg\"},\n  {id: 12, value: 12, url:\"images/instructor12.jpeg\"}\n]\n\nmodule.exports = images;\n\n\n//# sourceURL=webpack:///./client/src/model/images.js?");
 
 /***/ }),
 

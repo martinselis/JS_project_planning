@@ -1,6 +1,7 @@
 use scoreboard;
 db.dropDatabase();
-db.scoreboard.insertMany ([
+
+db.entries.insertMany([
 {name: 'Steve',
 clicks: 40,
 time:100
