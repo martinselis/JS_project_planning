@@ -4,13 +4,14 @@ const shuffle_function = require('./shuffle_function.js')
 const RequestHelper = require('../helpers/request_helper.js')
 
 const DataLoad = function() {
-  this.request = new RequestHelper('/api/scoreboard')
+  this.request = new RequestHelper('/api/scoreboard');
 
 }
 
 DataLoad.prototype.bindEvents = function () {
   PubSub.subscribe('Player:player-ready', (event) => {
     const difficulty = event.detail
+    this.difficulty = difficulty;
     const level = this.setDifficulty(difficulty)
     // publishLevel
     const leaderboard = this.getLeaderboard()
@@ -18,6 +19,7 @@ DataLoad.prototype.bindEvents = function () {
 
   PubSub.subscribe('Player:player-results', (event) => {
     const playerData = event.detail;
+    playerData.difficulty = this.difficulty;
     this.saveToDatabase(playerData)
   })
 };
@@ -30,13 +32,24 @@ DataLoad.prototype.getLeaderboard = function () {
   this.request.get()
     .then(entries => {
       this.leaderboard = entries;
-      const allData = {images: this.images, leaderboard: this.leaderboard};
+
+      this.leaderboard = this.leaderboard.reduce((total, entry) => {
+        if (entry.difficulty === this.difficulty) {
+          total.push(entry)
+        }
+        return total
+      }, [])
+
+      const allData = {
+        images: this.images,
+        leaderboard: this.leaderboard
+      };
+
       PubSub.publish('DataLoad:images-ready', allData)
     })
 };
 
 DataLoad.prototype.setDifficulty = function (difficulty) {
-  console.log('difficulty set')
   if (difficulty === "easy") {
     PubSub.publish('DataLoad:set-difficulty', 8);
     this.setImageCount(8)
