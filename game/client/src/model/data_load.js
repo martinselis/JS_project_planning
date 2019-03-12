@@ -14,9 +14,16 @@ DataLoad.prototype.bindEvents = function () {
     const level = this.setDifficulty(difficulty)
     // publishLevel
     const leaderboard = this.getLeaderboard()
-
   })
 
+  PubSub.subscribe('Player:player-results', (event) => {
+    const playerData = event.detail;
+    this.saveToDatabase(playerData)
+  })
+};
+
+DataLoad.prototype.saveToDatabase = function (playerData) {
+  this.request.post(playerData)
 };
 
 DataLoad.prototype.getLeaderboard = function () {
