@@ -55,6 +55,7 @@ LeaderboardView.prototype.renderLeaderboard = function (data) {
 
 }
 
+
 LeaderboardView.prototype.sortByClicks = function () {
   this.leaderboardData.sort((a, b) => {
     return a.clicks - b.clicks
