@@ -34,11 +34,9 @@ Player.prototype.bindEvents = function () {
 
   PubSub.subscribe('SquareView:increment-clicks', (event) => {
     this.clickCount += 1;
-    console.log('click count:', this.clickCount)
   })
 
   PubSub.subscribe('GameLogic:game-complete', (event) => {
-    console.log('final click count:', this.clickCount)
 
   })
 };

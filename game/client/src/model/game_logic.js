@@ -28,7 +28,7 @@ GameLogic.prototype.verifyMatch = function (card) {
       this.tally += 1;
       this.cards = [];
       if (this.level == this.tally) {
-        console.log('You won')
+        this.gameWon = "won";
         const finish = Date.now();
         PubSub.publish('GameLogic:game-complete', finish)
       }

@@ -7,7 +7,7 @@
     "build": "webpack -w",
     "start": "node server/server.js",
     "server:dev": "nodemon server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./client/src/specs/"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "mongodb": "^3.1.13"
   },
   "devDependencies": {
+    "mocha": "^6.0.2",
     "nodemon": "^1.18.10",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
