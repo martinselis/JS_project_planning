@@ -1,5 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js');
-const SquareView = require('../views/square_view.js')
+const SquareView = require('./square_view.js')
+const LeaderboardView = require('./leaderboard_view.js')
 
 const MasterView = function(element) {
   this.element = element;
@@ -7,8 +8,9 @@ const MasterView = function(element) {
 
 MasterView.prototype.bindEvents = function () {
   PubSub.subscribe('DataLoad:images-ready', (event) => {
-    const imageData = event.detail;
-    this.renderImages(imageData)
+    const allData = event.detail;
+    this.renderImages(allData.images)
+    this.renderLeaderboard(allData.leaderboard)
   })
 
   PubSub.subscribe('GameLogic:clear-cards', (event) => {
@@ -44,5 +46,13 @@ MasterView.prototype.renderImages = function (imageData) {
     squareView.render();
   })
 };
+
+MasterView.prototype.renderLeaderboard =  function(leaderboardData) {
+  const leaderDiv = document.querySelector('#leaderboard')
+  const leaderboard = new LeaderboardView(leaderDiv, leaderboardData);
+  leaderboard.render();
+
+};
+
 
 module.exports = MasterView;
