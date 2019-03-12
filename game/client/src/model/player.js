@@ -23,7 +23,13 @@ Player.prototype.bindEvents = function () {
     this.endTime = finishTime;
     let completionTime = this.endTime - this.startTime;
     completionTime = completionTime / 1000;
-    console.log(`You completed the game in ${completionTime} seconds`)
+
+    const playerData = {
+      name: this.name,
+      clicks: this.clickCount,
+      time: Math.floor(completionTime)
+    }
+    PubSub.publish('Player:player-results', playerData)
   })
 
   PubSub.subscribe('SquareView:increment-clicks', (event) => {
@@ -35,6 +41,10 @@ Player.prototype.bindEvents = function () {
     console.log('final click count:', this.clickCount)
 
   })
+};
+
+Player.prototype.methodName = function () {
+
 };
 
 module.exports = Player;

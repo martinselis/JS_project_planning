@@ -36,25 +36,22 @@ LeaderboardView.prototype.createElement = function (element, text) {
 LeaderboardView.prototype.renderLeaderboard = function (data) {
   this.sortByClicks()
 
-  const nameUl = document.createElement("ul")
-  const clicksUl = document.createElement("ul")
-  const timeUl = document.createElement("ul")
-
   this.leaderboardData.forEach((entry) => {
+    const nameDiv = document.createElement("div")
     const name = this.createElement("li", entry.name)
-    nameUl.appendChild(name)
+    nameDiv.appendChild(name)
+    this.leaderboard.appendChild(nameDiv)
 
+    const clicksDiv = document.createElement("div")
     const clicks = this.createElement("li", entry.clicks)
-    clicksUl.appendChild(clicks)
+    clicksDiv.appendChild(clicks)
+    this.leaderboard.appendChild(clicksDiv)
 
-    const time = this.createElement("li", `${entry.time} seconds`)
-    timeUl.appendChild(time)
+    const timeDiv = document.createElement("div")
+    const time = this.createElement("li", `${entry.time} sec`)
+    timeDiv.appendChild(time)
+    this.leaderboard.appendChild(timeDiv)
   })
-
-  this.leaderboard.appendChild(nameUl)
-  this.leaderboard.appendChild(clicksUl)
-  this.leaderboard.appendChild(timeUl)
-
 
 }
 
