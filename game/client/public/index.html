@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/bundle.js"></script>
+  </head>
+  <body>
+    <h1>"Title"</h1>
+
+    <div id="player_info">
+      <form>
+        <label for="player">Player name:</label>
+        <input type="text" id="player"></input>
+        <label for="difficulty">Difficulty:</label>
+        <input type="radio" name="difficulty" value="easy" checked> Easy peasy<br>
+        <input type="radio" name="difficulty" value="medium">I like a challenge<br>
+        <input type="radio" name="difficulty" value="hard">I remember everything
+        <input type="submit" value="Start Game">
+      </form>
+    </div>
+    <div id="wrapper">
+        <div class="master_grid"></div>
+
+        <div id="leaderboard">
+        </div>
+    </div>
+
+    <div id="winner_message">
+    </div>
+  </body>
+</html>

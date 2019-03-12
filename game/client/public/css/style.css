@@ -1,0 +1,81 @@
+#wrapper {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+}
+
+.leaderboardTitles {
+  text-align:center;
+}
+
+.leaderdiv {
+  grid-column: 1/4;
+  text-align: center;
+}
+
+.master_grid {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0px auto;
+  border: 1px solid blue;
+  padding-left: 170px;
+  float: left;
+}
+
+#leaderboard {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.fivexfive {
+  grid-template-columns: repeat(5, 1fr);
+  width: 500px;
+  padding-left: 150px;
+}
+
+.sixxsix {
+  grid-template-columns: repeat(6, 1fr);
+  width: 600px;
+  padding-left: 100px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  background-image: url('../images/Codeclan.jpg');
+  background-position: center;
+}
+
+.square:hover{
+  opacity: 0.5;
+}
+
+img {
+  width: 100px;
+  height: auto;
+  display: none;
+}
+
+.hidden {
+  display:none;
+}
+
+.show {
+  display:block;
+}
+
+#playerInfo {
+  width: 300px;
+  margin: 100px auto;
+}
+
+#playerInfo a {
+  display:block;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
