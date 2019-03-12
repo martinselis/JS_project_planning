@@ -7,17 +7,23 @@
     <script src="./js/bundle.js"></script>
   </head>
   <body>
-    <h1>"Title"</h1>
+    <h1>Do You Remember</h1>
 
     <div id="player_info">
       <form>
         <label for="player">Player name:</label>
         <input type="text" id="player"></input>
-        <label for="difficulty">Difficulty:</label>
+        <br>
+        <p> The aim of the game is to match the pictures.</p>
+        <p> Pick your difficulty level to see how good your memory is</p>
+        <label for="difficulty">Difficulty:</label></br>
+
         <input type="radio" name="difficulty" value="easy" checked> Easy peasy<br>
-        <input type="radio" name="difficulty" value="medium">I like a challenge<br>
-        <input type="radio" name="difficulty" value="hard">I remember everything
-        <input type="submit" value="Start Game">
+        <input type="radio" name="difficulty" value="medium"> I like a challenge<br>
+        <input type="radio" name="difficulty" value="hard"> I remember everything
+       <br><input type="submit" value="Start Game"></br>
+
+
       </form>
     </div>
     <div id="wrapper">
@@ -28,6 +34,9 @@
     </div>
 
     <div id="winner_message">
+    </div>
+    <div class="footer">
+      <p>This game was created by Laser Tigers</p>
     </div>
   </body>
 </html>
