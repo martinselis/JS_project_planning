@@ -2,7 +2,10 @@
   border: 1px solid black;
   display: grid;
   grid-template-columns: 2fr 1fr;
+}
 
+.leaderboardTitles {
+  text-align:center;
 }
 
 .master_grid {
@@ -16,6 +19,8 @@
 
 #leaderboard {
   border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .fivexfive {
