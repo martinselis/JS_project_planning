@@ -45,12 +45,13 @@ SquareView.prototype.addClickEvent = function (squareDiv) {
     PubSub.publish('SquareView:increment-clicks', 1);
     PubSub.publish('SquareView:card-clicked', data)
 
-
   })
 };
 
 SquareView.prototype.displayCard = function (card) {
-  card.children[0].classList.add("show");
+  if(card.children[0]) {
+    card.children[0].classList.add("show")
+  }
 };
 
 SquareView.prototype.hideCard = function (card) {

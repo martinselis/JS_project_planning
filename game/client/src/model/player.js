@@ -41,8 +41,5 @@ Player.prototype.bindEvents = function () {
   })
 };
 
-Player.prototype.methodName = function () {
-
-};
 
 module.exports = Player;

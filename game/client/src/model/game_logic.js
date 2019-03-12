@@ -22,9 +22,9 @@ GameLogic.prototype.bindEvents = function () {
 };
 
 GameLogic.prototype.verifyMatch = function (card) {
+  
   if (this.cards.length == 1) {
     if (this.cards[0].value == card.value) {
-      console.log('match')
       this.tally += 1;
       this.cards = [];
       if (this.level == this.tally) {
@@ -38,7 +38,6 @@ GameLogic.prototype.verifyMatch = function (card) {
       this.cards = [];
     }
   } else {
-    console.log('first card. adding to array')
     this.cards.push(card)
   }
 }

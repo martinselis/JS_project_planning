@@ -18,6 +18,12 @@ LeaderboardView.prototype.bindEvents = function () {
 LeaderboardView.prototype.render = function () {
   this.bindEvents()
 
+  const leaderHeaderDiv = document.createElement("div")
+  const leaderTitle = this.createElement("h2", "Leaderboard")
+  leaderHeaderDiv.classList.add('leaderdiv')
+  leaderHeaderDiv.appendChild(leaderTitle)
+  this.leaderboard.appendChild(leaderHeaderDiv)
+
   const nameDiv = document.createElement("div");
   const nameTitle = this.createElement("h3", "Player")
   nameDiv.appendChild(nameTitle)
