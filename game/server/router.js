@@ -6,6 +6,7 @@ const createRouter = function(collection) {
 
   router.get('/', (req, res) => {
     collection
+<<<<<<< HEAD
     .find()
     .toArray()
     .then((docs) =>res.json(docs))
@@ -14,6 +15,16 @@ const createRouter = function(collection) {
     res.status(500);
     res.json({status:500, error: console.error()});
     });
+=======
+      .find()
+      .toArray()
+      .then((docs) => res.json(docs))
+      .catch((err) => {
+        console.error(err);
+        res.status(500);
+        res.json({ status: 500, error: err });
+      });
+>>>>>>> f398a7ee6046e1ad99b3d14ebfd915c4d36b3e4f
   });
 
   router.post('/', (req, res) =>{
@@ -33,6 +44,10 @@ const createRouter = function(collection) {
     })
   })
   return router
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> f398a7ee6046e1ad99b3d14ebfd915c4d36b3e4f
 
 module.exports = createRouter
