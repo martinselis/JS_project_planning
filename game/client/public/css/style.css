@@ -1,18 +1,33 @@
+#wrapper {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+}
+
 .master_grid {
   display:grid;
   grid-template-columns: repeat(4, 1fr);
-  width: 400px;
-  margin: 100px auto;
+  margin: 0px auto;
+  border: 1px solid blue;
+  padding-left: 170px;
+  float: left;
+}
+
+#leaderboard {
+  border: 1px solid red;
 }
 
 .fivexfive {
   grid-template-columns: repeat(5, 1fr);
   width: 500px;
+  padding-left: 150px;
 }
 
 .sixxsix {
   grid-template-columns: repeat(6, 1fr);
   width: 600px;
+  padding-left: 100px;
 }
 
 .square {
