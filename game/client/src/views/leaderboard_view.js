@@ -101,6 +101,11 @@ LeaderboardView.prototype.sortByClicks = function () {
   this.leaderboardData.sort((a, b) => {
     return a.clicks - b.clicks
   })
+
+  if (this.leaderboardData.length > 10) {
+    this.leaderboardData = this.leaderboardData.splice(0, 10)
+  }
+
   this.renderLeaderboard(this.leaderboardData)
 
 };
@@ -109,6 +114,11 @@ LeaderboardView.prototype.sortByTime = function () {
   this.leaderboardData.sort((a, b) => {
     return a.time - b.time
   })
+
+  if (this.leaderboardData.length > 10) {
+    this.leaderboardData = this.leaderboardData.splice(0, 10)
+  }
+
   this.renderLeaderboard(this.leaderboardData)
 
 };
