@@ -13,6 +13,11 @@ MasterView.prototype.bindEvents = function () {
     this.renderLeaderboard(allData.leaderboard)
   })
 
+  PubSub.subscribe('DataLoad:render-leaderboard', (event) => {
+    const leaderData = event.detail;
+    this.renderLeaderboard(leaderData)
+  })
+
   PubSub.subscribe('GameLogic:clear-cards', (event) => {
     const cards = event.detail;
     this.clearSquares(cards)
@@ -49,6 +54,7 @@ MasterView.prototype.renderImages = function (imageData) {
 
 MasterView.prototype.renderLeaderboard =  function(leaderboardData) {
   const leaderDiv = document.querySelector('#leaderboard')
+  leaderDiv.innerHTML = "";
   const leaderboard = new LeaderboardView(leaderDiv, leaderboardData);
   leaderboard.render();
 
