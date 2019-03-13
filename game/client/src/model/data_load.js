@@ -14,13 +14,30 @@ DataLoad.prototype.bindEvents = function () {
     this.difficulty = difficulty;
     const level = this.setDifficulty(difficulty)
     // publishLevel
-    const leaderboard = this.getLeaderboard()
+    this.getLeaderboard()
+      .then((result) => {
+
+        const allData = {
+          images: this.images,
+          leaderboard: this.leaderboard
+        };
+
+        PubSub.publish('DataLoad:images-ready', allData)
+      })
+
+
   })
 
   PubSub.subscribe('Player:player-results', (event) => {
     const playerData = event.detail;
     playerData.difficulty = this.difficulty;
     this.saveToDatabase(playerData)
+    this.getLeaderboard()
+      .then((result) => {
+        const leaderboard = this.leaderboard;
+        PubSub.publish('DataLoad:render-leaderboard', leaderboard)
+      })
+
   })
 };
 
@@ -29,24 +46,19 @@ DataLoad.prototype.saveToDatabase = function (playerData) {
 };
 
 DataLoad.prototype.getLeaderboard = function () {
+  return new Promise((resolve) => {
   this.request.get()
     .then(entries => {
       this.leaderboard = entries;
-
       this.leaderboard = this.leaderboard.reduce((total, entry) => {
         if (entry.difficulty === this.difficulty) {
           total.push(entry)
         }
         return total
       }, [])
-
-      const allData = {
-        images: this.images,
-        leaderboard: this.leaderboard
-      };
-
-      PubSub.publish('DataLoad:images-ready', allData)
     })
+    .then((result) => resolve())
+  })
 };
 
 DataLoad.prototype.setDifficulty = function (difficulty) {
