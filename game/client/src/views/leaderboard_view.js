@@ -17,6 +17,7 @@ LeaderboardView.prototype.bindEvents = function () {
 
 LeaderboardView.prototype.render = function () {
   this.bindEvents()
+  this.leaderboard.classList.add('leaderstyles')
 
   const leaderHeaderDiv = document.createElement("div")
   const leaderTitle = this.createElement("h2", "Leaderboard")

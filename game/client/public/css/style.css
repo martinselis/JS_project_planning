@@ -70,6 +70,16 @@ button, input {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.leaderstyles{
+background-color: #FFFFFF;
+margin-bottom: 40px;
+margin-right: 10px;
+border: double #E6C372 14px;
+
+}
+
+
+
 .fivexfive {
   grid-template-columns: repeat(5, 1fr);
   width: 600px;
@@ -89,6 +99,11 @@ button, input {
   grid-column: 1/4;
   text-align: center;
 }
+#leaderboard li {
+  list-style-type: none;
+  text-align: center;
+}
+
 .square {
   width: 110px;
   height: 110px;
