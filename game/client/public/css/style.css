@@ -1,12 +1,8 @@
 
 body {
-  font-family: ariel;
+  font-family: gilroy-extrabold;
   font-size: 2em;
-  background: url(/images/background_wallpaper.jpg);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: auto;
+  background-color:
 
 }
 
@@ -27,11 +23,12 @@ form {
   display: block;
   margin-top: 0em;
   margin-left: 2em;
-  color: #8C5383;
+  color: #020202;
+  font-weight: bolder;
 }
 
 p{
-  font-size: 0.7em
+  font-size: 0.9em
 }
 
 button, input {
@@ -42,7 +39,7 @@ button, input {
   cursor: pointer;
   padding-block-start: 0.5em;
   padding-block-end: 0.3em;
-  
+
 }
 
 
@@ -134,7 +131,7 @@ img {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: none;
+  background-color: #E6C372;
   color: white;
   text-align: center;
 }
