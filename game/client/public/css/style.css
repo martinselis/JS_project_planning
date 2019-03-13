@@ -1,10 +1,86 @@
-#wrapper {
+body {
+  margin: 0;
+  background-color: #D9DCD6;
+  font-family: "gilroy-light";
+}
+
+@font-face {
+  font-family: "gilroy";
+  src: url('./fonts/gilroy-extrabold.ttf');
+}
+
+@font-face {
+  font-family: "gilroy-light";
+  src: url('./fonts/gilroy-light.ttf');
+}
+
+#title {
+  display: block;
+  width: 100%;
+  height: 100px;
+  background-color: #3A7CA5;
+}
+
+form {
+  display: block;
+  width: 500px;
+  margin: 50px auto;
+  color: #020202;
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+
+button, input {
+  font: .6em;
   border: 1px solid black;
+  border-radius: 5px;
+  background: #C2C5BB;
+  cursor: pointer;
+  padding-block-start: 0.5em;
+  padding-block-end: 0.3em;
+}
+
+#title h1 {
+  padding-top: 30px;
+  margin: 0;
+  color: #F8F8FF;
+  font-family: "gilroy";
+}
+
+#wrapper {
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 2fr 1fr;
+  margin-bottom: 0px;
 
 }
 
+.master_grid {
+
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0px auto;
+  float: left;
+  grid-gap: 10px;
+  margin-bottom: 40px;
+}
+
+#leaderboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.fivexfive {
+  grid-template-columns: repeat(5, 1fr);
+  width: 600px;
+
+}
+
+.sixxsix {
+  grid-template-columns: repeat(6, 1fr);
+  width: 700px;
+
+}
 .leaderboardTitles {
   text-align:center;
 }
@@ -13,40 +89,13 @@
   grid-column: 1/4;
   text-align: center;
 }
-
-.master_grid {
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin: 0px auto;
-  border: 1px solid blue;
-  padding-left: 170px;
-  float: left;
-}
-
-#leaderboard {
-  border: 1px solid red;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.fivexfive {
-  grid-template-columns: repeat(5, 1fr);
-  width: 500px;
-  padding-left: 150px;
-}
-
-.sixxsix {
-  grid-template-columns: repeat(6, 1fr);
-  width: 600px;
-  padding-left: 100px;
-}
-
 .square {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border: 1px solid black;
-  background-image: url('../images/Codeclan.jpg');
-  background-position: center;
+  background-image: url('../images/Codeclan.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .square:hover{
@@ -54,7 +103,7 @@
 }
 
 img {
-  width: 100px;
+  width: 110px;
   height: auto;
   display: none;
 }
@@ -76,6 +125,27 @@ img {
   display:block;
 }
 
-.flip {
-  transform: rotateY(180deg);
+#winner_message {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+
+footer {
+  grid-column: 1/4;
+  width: 100%;
+  background-color: #E6C372;
+  color: white;
+  text-align: center;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 20px;
+}
+
+footer p {
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
