@@ -33,8 +33,8 @@ LeaderboardView.prototype.render = function () {
 
   const clickDiv = document.createElement("div");
   const clicks = this.createElement("h3", "Clicks")
+  clicks.classList.add("clicksTime")
   clickDiv.appendChild(clicks)
-  console.log(this)
   clickDiv.addEventListener('click', function() {
     const target = this.children[0].textContent.toLowerCase()
     PubSub.publish('LeaderboardView:sort-method', target)
@@ -45,6 +45,7 @@ LeaderboardView.prototype.render = function () {
 
   const timeDiv = document.createElement("div");
   const time = this.createElement("h3", "Time")
+  time.classList.add("clicksTime")
   timeDiv.appendChild(time)
   timeDiv.addEventListener('click', function() {
     const target = this.children[0].textContent.toLowerCase()
