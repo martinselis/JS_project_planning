@@ -70,12 +70,21 @@ button, input {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.leaderstyles{
-background-color: #FFFFFF;
-margin-bottom: 40px;
-margin-right: 10px;
-border: double #E6C372 14px;
+#leaderboard li {
+  list-style-type: none;
+  text-align: center;
+}
 
+.clicksTime:hover {
+  color: #E6C372;
+  cursor: pointer;
+}
+
+.leaderstyles{
+  background-color: #FFFFFF;
+  margin-bottom: 40px;
+  margin-right: 10px;
+  border: double #E6C372 14px;
 }
 
 
@@ -97,10 +106,6 @@ border: double #E6C372 14px;
 
 .leaderdiv {
   grid-column: 1/4;
-  text-align: center;
-}
-#leaderboard li {
-  list-style-type: none;
   text-align: center;
 }
 
